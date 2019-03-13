@@ -40,7 +40,12 @@ fancybox: true
 pjax: true
 
 # LaTeX support (via MathJax)
-latex: false
+latex:
+  enable: false
+  # renderer: if enabled, set the MathJax Renderer
+  # can be one of: CommonHTML | HTML-CSS | NativeMML | SVG | PreviewHTML | PlainSource
+  # see: https://docs.mathjax.org/en/latest/options/output-processors/index.html
+  renderer: 'CommonHTML'
 
 copyright:
   enable: true

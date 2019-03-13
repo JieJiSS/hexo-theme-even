@@ -29,9 +29,12 @@
 {%- endif -%}
 
 {#- MathJax (LaTeX) support -#}
-{%- if theme.latex -%}
+{%- if theme.latex.enable -%}
   <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    MathJax.Hub.Config({
+      tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] },
+      messageStyle: "none"
+    });
   </script>
   <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 {%- endif -%}
@@ -48,7 +51,7 @@
 {#- LeanCloud Counter -#}
 {%- include "../_script/counter.swig"%}
 
-{%- set themeConfig = { leancloud: theme.leancloud, toc: theme.toc, fancybox: theme.fancybox, pjax: theme.pjax, latex: theme.latex } -%}
+{%- set themeConfig = { leancloud: theme.leancloud, toc: theme.toc, fancybox: theme.fancybox, pjax: theme.pjax, latex: theme.latex.enable, renderer: theme.latex.renderer } -%}
 <script>
   window.config = {{ JSON.stringify(themeConfig) }};
 </script>
