@@ -271,7 +271,10 @@
     var loopID = setInterval(function () {
       if(window.MathJax) {
         var jax = window.MathJax;
-        jax.Hub.Config({ tex2jax: { inlineMath: [['$', '$'], ['\\(', '\\)']] }});
+        jax.Hub.Config({
+          tex2jax: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+          messageStyle: "none"
+        });
         jax.Hub.Queue(['setRenderer', jax.Hub, renderer]);
         jax.Hub.Queue(['Typeset', jax.Hub, $(document.body)[0]]);
         clearInterval(loopID);
