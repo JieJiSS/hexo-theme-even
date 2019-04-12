@@ -277,6 +277,7 @@
         jax.Hub.Queue(['setRenderer', jax.Hub, renderer]);
         jax.Hub.Queue(['Typeset', jax.Hub, $(document.body)[0]]);
         clearInterval(loopID);
+        loopID = null;
       }
     }, 500);
   }
@@ -284,4 +285,4 @@
   var config = window.config;
   var even = new Even(config);
   even.setup();
-}(window))
+}(window));
