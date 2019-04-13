@@ -111,7 +111,11 @@
 
     $(window).scroll(function () {
       var scrollTop = $(window).scrollTop();
+      var isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
       var headerlinkTop = $.map($headerlink, function (link) {
+        if(isFirefox) {
+          return $(link).offset().top;
+        }
         return scrollTop + $(link).offset().top;
       });
 
